@@ -21,11 +21,12 @@ const {
 const {
   signupValidators,
   updateUserValidators,
+  checkValidations,
 } = require('../middlewares/validators.middlewares');
 
 const usersRouter = express.Router();
 
-usersRouter.post('/', signupValidators, signup);
+usersRouter.post('/', signupValidators, checkValidations, signup);
 
 usersRouter.post('/login', login);
 
@@ -39,6 +40,7 @@ usersRouter.patch(
   validateUser,
   protectUsersAccount,
   updateUserValidators,
+  checkValidations,
   updateUser
 );
 

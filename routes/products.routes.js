@@ -27,6 +27,7 @@ const {
   newProductValidators,
   updateProductValidators,
   categoryValidators,
+  checkValidations,
 } = require('../middlewares/validators.middlewares');
 
 const productsRouter = express.Router();
@@ -44,6 +45,7 @@ productsRouter.post(
   '/',
   upload.array('productImgs', 5),
   newProductValidators,
+  checkValidations,
   createProduct
 );
 
@@ -51,17 +53,24 @@ productsRouter.patch(
   '/:id',
   protectProduct,
   updateProductValidators,
+  checkValidations,
   updateProduct
 );
 
 productsRouter.delete('/:id', protectProduct, deleteProduct);
 
-productsRouter.post('/categories', categoryValidators, createCategory);
+productsRouter.post(
+  '/categories',
+  categoryValidators,
+  checkValidations,
+  createCategory
+);
 
 productsRouter.patch(
   '/categories/:id',
   validateCategory,
   categoryValidators,
+  checkValidations,
   updateCategory
 );
 

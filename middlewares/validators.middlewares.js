@@ -34,7 +34,6 @@ const signupValidators = [
     .withMessage('Password cannot be empty')
     .isLength({ min: 8 })
     .withMessage('Password must be at least 8 characters'),
-  checkValidations,
 ];
 
 const updateUserValidators = [
@@ -46,7 +45,6 @@ const updateUserValidators = [
     .isLength({ min: 8 })
     .withMessage('Username must be at least 8 characters'),
   body('email').isEmail().withMessage('Must provide a valid email'),
-  checkValidations,
 ];
 
 const newProductValidators = [
@@ -63,7 +61,6 @@ const newProductValidators = [
   body('quantity').isInt().withMessage('Must provide a valid quantity'),
   body('price').isDecimal().withMessage('Must provide a valid price'),
   body('categoryId').isInt().withMessage('Must provide a valid category id'),
-  checkValidations,
 ];
 
 const updateProductValidators = [
@@ -79,7 +76,6 @@ const updateProductValidators = [
     .withMessage('Description cannot be empty'),
   body('price').isDecimal().withMessage('Must provide a valid price'),
   body('quantity').isInt().withMessage('Must provide a valid quantity'),
-  checkValidations,
 ];
 
 const categoryValidators = [
@@ -88,7 +84,6 @@ const categoryValidators = [
     .withMessage('Name must be a string')
     .notEmpty()
     .withMessage('Name cannot be empty'),
-  checkValidations,
 ];
 
 const addProdInCartValidators = [
@@ -102,7 +97,6 @@ const addProdInCartValidators = [
     .withMessage('Must be provide a valid quantity')
     .notEmpty()
     .withMessage('Quantity id cannot be empty'),
-  checkValidations,
 ];
 
 const updateCartValidators = [
@@ -116,7 +110,6 @@ const updateCartValidators = [
     .withMessage('Must be provide a valid quantity')
     .notEmpty()
     .withMessage('Quantity id cannot be empty'),
-  checkValidations,
 ];
 
 module.exports = {
@@ -127,4 +120,5 @@ module.exports = {
   categoryValidators,
   addProdInCartValidators,
   updateCartValidators,
+  checkValidations,
 };
