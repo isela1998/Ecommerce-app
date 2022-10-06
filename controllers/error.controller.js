@@ -43,7 +43,7 @@ const globalErrorHandler = (error, req, res, next) => {
     sendErrorDev(error, req, res);
   } else if (process.env.NODE_ENV === 'production') {
     console.log('production', error);
-    let err = { ...error };
+    let err = error;
 
     if (error.name === 'TokenExpiredError') err = tokenExpiredError();
     else if (error.name === 'JsonWebTokenError')
