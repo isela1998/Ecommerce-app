@@ -6,7 +6,6 @@ const { AppError } = require('../utils/appError.util');
 dotenv.config({ path: './config.env' });
 
 const sendErrorDev = (error, req, res) => {
-  console.log(error);
   res.status(error.statusCode).json({
     status: error.status,
     message: error.message,
@@ -16,6 +15,7 @@ const sendErrorDev = (error, req, res) => {
 };
 
 const sendErrorProd = (error, req, res) => {
+  console.log(error);
   res.status(error.statusCode).json({
     status: error.status,
     message: error.message || 'Something went wrong!',
